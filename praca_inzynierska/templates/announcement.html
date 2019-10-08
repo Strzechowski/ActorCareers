@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Ogłoszenia aktorów</h1>
+    <hr>
+    {% for announcement in announcements %}
+    <p>
+        <div class="container">
+            <div class="col-md-10 px-0">
+                <h2><a>{{ announcement.name }} {{ announcement.surname }} </a></h2>
+                <img src="{{ announcement.profile_picture.url }}" style="max-height: 400px" class="img-fluid">
+                <p>{{ announcement.age }} | {{ announcement.sex }}</p>
+                <p>{{ announcement.description }}</p>
+                <p>
+                    <small>
+                        Created on: {{ announcement.created_on.date }}
+                    </small>
+                </p>
+
+                <a href="{% url 'announcement_detail' announcement.pk %}"
+                    class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </p>
+    {% endfor %}
+</div>
+
+{% endblock %}
