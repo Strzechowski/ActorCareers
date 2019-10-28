@@ -1,6 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<h1>Hellooooooo boiii</h1>
+<body class="theater">
+
+
+
+
+<div class="home">
+    <h1 class="display-2 home-h1 top-buffer">Welcome in the actors world!</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3 px-0">
+        <div>
+            <form action="search_announcements" method="get">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Find an actor</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-1 px-0">
+    </div>
+
+    <div class="col-md-3 px-0">
+        <div >
+            {% if user.is_authenticated %}
+            {% else %}
+            <form action="/login" method="get">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Become an actor</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="col-md-5 px-0">
+    </div>
+
+</div>
+</body>
+
 {% endblock %}
 

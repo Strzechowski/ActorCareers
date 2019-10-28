@@ -1,27 +1,76 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
-<h1>{{ announcement.name }} {{ announcement.surname }}</h1>
 <br>
 
-<h4>About the actor:</h5>
-<div class="row">
+<div class="row person-info-container top-buffer">
 
-    <div class="col-md-6">
-        <p>{{ announcement.description }}</p>
+    <div class="col-md-3 px-0">
+        <div class="my-img-container-detail">
+            <img src="{{ actor.profile_picture.url }}" class="img-announcement">
+        </div>
     </div>
 
-    <div class="col-md-4">
-        <img src="{{ announcement.profile_picture.url }}" style="max-height: 400px" class="img-fluid">
+    <div class="col-md-9">
+        <div class="top-buffer-small">
+            <h1>{{ actor.name }} {{ actor.surname }}</h1>
+            <br>
+
+            <h3>Played '{{ actor.last_role }}' in a movie '{{ actor.last_movie }}'</h3>
+            <br>
+            <h3>Genres:</h3>
+            <h5>
+                {% for category in categories %}
+                {{ category.name }} &nbsp&nbsp&nbsp&nbsp&nbsp
+                {% endfor %}
+            </h5>
+        </div>
     </div>
 
 </div>
 
+<br>
+
 <div class="row">
-        <div class="col-md-10">
-        <br>
-        <h5>Actor's age:</h5>
-        <p>{{ announcement.age }}</p>
+
+    <div class="col-md-6 person-info-container">
+        <div class="top-buffer-small">
+            <h5>About the actor:</h5>
+            <p>{{ actor.description }}</p>
+        </div>
     </div>
+
+    <div class="col-md-6 person-info-container">
+        <div class="top-buffer-small">
+            <h5>Actor's info:</h5>
+            <p>Age: {{ actor.age }}</p>
+            <p>City: {{ actor.city }}</p>
+            <p>Email: {{ actor.email }}</p>
+        </div>
+    </div>
+
 </div>
+
+{% block profile_edit %}
+{% endblock %}
+
+<br>
+<h2>Photos</h2>
+
+<div class="row">
+    {% for photo in photos %}
+
+            <div class="col-md-3 px-0">
+
+                <div class="my-img-container-gallery top-buffer-small">
+                    <a href="{{ photo.photo.url }}">
+                        <img src="{{ photo.photo.url }}" class=" img-announcement">
+                    </a>
+                </div>
+
+            </div>
+
+    {% endfor %}
+</div>
+
 {% endblock %}

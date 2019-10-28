@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<br>
+
+<div class="row person-info-container top-buffer">
+
+    <div class="col-md-3 px-0">
+        <div class="my-img-container-detail">
+            <img src="{{ job.picture.url }}" class="img-announcement">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="top-buffer-small">
+            <h1>{{ job.name }}</h1>
+            <br>
+
+            <h3>Localization: {{ job.localization }}</h3>
+            <h3>Pay: {{ job.pay_monthly }} zl / month</h3>
+            <h3>Employer: {{ job.company.name }} </h3>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="col-md-8 person-info-container">
+        <div class="top-buffer-small">
+            <h5>About the job:</h5>
+            <p>{{ job.description }}</p>
+        </div>
+    </div>
+
+    <div class="col-md-4 person-info-container">
+        <h5>Genres:</h5>
+        <h5>
+            {% for category in categories %}
+            {{ category.name }} &nbsp&nbsp&nbsp&nbsp&nbsp
+            {% endfor %}
+        </h5>
+    </div>
+
+</div>
+
+{% endblock %}

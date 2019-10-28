@@ -1,31 +1,36 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block page_content %}
-<div class="col-md-8 offset-md-2">
-    <h1>Ogłoszenia aktorów</h1>
+
+{% block search %}{% endblock %}
+
+<div class="col-md-10">
+    <br>
+    <h1 class="dominant-color">Actors Announcements</h1>
     <hr>
-    {% for announcement in announcements %}
-    <p>
-        <div class="container">
-            <div class="col-md-10 px-0">
-                <h2><a>{{ announcement.name }} {{ announcement.surname }} </a></h2>
-                <img src="{{ announcement.profile_picture.url }}" style="max-height: 400px" class="img-fluid">
-                <p>{{ announcement.age }} | {{ announcement.sex }}</p>
-                <p>{{ announcement.description }}</p>
-                <p>
-                    <small>
-                        Created on: {{ announcement.created_on.date }}
-                    </small>
-                </p>
 
-                <a href="{% url 'announcement_detail' announcement.pk %}"
-                    class="btn btn-primary">
-                    Read More
-                </a>
+    <div class="container">
+        {% for obj in filter.qs %}
+            <div class="row person-info-container top-buffer">
+                <div class="col-md-3 px-0">
+                    <div class="my-img-container">
+                        <img src="{{ obj.profile_picture.url }}" class="img-announcement">
+                    </div>
+                </div>
+
+                <div class="col-md-9 px-0">
+                    <a class="overlay" href="{% url 'announcement_detail' obj.pk %}">
+                        <div class="top-buffer-small">
+                            <h4>{{ obj.name }} {{ obj.surname }} | {{ obj.age }}</h4>
+                            <p>Last role: '{{ obj.last_role }}' in a movie '{{ obj.last_movie }}'</p>
+                            <p>{{ obj.description | truncatewords:20 }}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
-    </p>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 
+</div>
 {% endblock %}

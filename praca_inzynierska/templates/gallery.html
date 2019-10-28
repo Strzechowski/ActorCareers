@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <h2>Photos</h2>
+
+
+    <div class="row">
+        {% for photo in photos %}
+
+                <div class="col-md-3 px-0">
+
+                    <div class="my-img-container-gallery">
+                        <a href="{{ photo.photo.url }}">
+                            <img src="{{ photo.photo.url }}" class=" img-announcement">
+                        </a>
+                    </div>
+
+                    <form method="POST" action="{% url 'delete_photo' photo.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+
+                </div>
+
+        {% endfor %}
+    </div>
+
+    <hr>
+    <p>Do you want to upload a photo? Click <a href="/praca_inzynierska/upload">here</a></p>
+
+
+{% endblock %}

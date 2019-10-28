@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="col-md-10">
+    <br>
+    <h1 class="dominant-color">Companies</h1>
+    <hr>
+
+    <div class="container">
+                {% for obj in filter.qs %}
+                    <div class="row person-info-container top-buffer">
+                        <div class="col-md-3 px-0">
+                            <div class="my-img-container">
+                                <img src="{{ obj.logo.url }}" class="img-announcement">
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 px-0">
+                            <a class="overlay" href="{% url 'company' obj.pk %}">
+                                <div class="top-buffer-small">
+                                    <h4>{{ obj.name }}</h4>
+                                    <p>{{ obj.description | truncatewords:50 }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+</div>
+{% endblock %}

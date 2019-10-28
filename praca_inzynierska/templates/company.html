@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="col-md-10">
+    <div class="row person-info-container top-buffer">
+
+        <div class="col-md-3 px-0">
+            <div class="my-img-container-detail">
+                <img src="{{ company.logo.url }}" class="img-announcement">
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="top-buffer-small">
+                <h1>{{ company.name }}</h1>
+                <br>
+                <p>{{ company.description }}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <h2>Job offers:</h2>
+
+
+    <div class="container">
+        {% for job in jobs %}
+            <div class="row person-info-container top-buffer">
+                <div class="col-md-3 px-0">
+                    <div class="my-img-container">
+                        <img src="{{ job.picture.url }}" class="img-announcement">
+                    </div>
+                </div>
+
+                <div class="col-md-9 px-0">
+                    <a class="overlay" href="{% url 'job_offer' job.pk %}">
+                        <div class="top-buffer-small">
+                            <h4>{{ job.name }} </h4>
+                            <p>{{ job.description | truncatewords:50 }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% block company_edit %}
+{% endblock %}
+
+
+{% endblock %}

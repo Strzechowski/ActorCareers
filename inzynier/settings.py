@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -124,8 +125,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/blog'
-LOGOUT_REDIRECT_URL = '/blog'
+STATICFILES_DIRS = [
+    "/home/strzecho/learning/inzynierka/inzynier/praca_inzynierska/static/praca_inzynierska/css/"
+]
+
+
+LOGIN_REDIRECT_URL = '/praca_inzynierska'
+LOGOUT_REDIRECT_URL = '/praca_inzynierska'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
