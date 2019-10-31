@@ -123,13 +123,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'praca_inzynierska/static/praca_inzynierska')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    "/home/strzecho/learning/inzynierka/inzynier/praca_inzynierska/static/praca_inzynierska/css/"
+    "/home/strzecho/learning/inzynierka/inzynier/praca_inzynierska/static/praca_inzynierska/css/",
 ]
 
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/praca_inzynierska'
 LOGOUT_REDIRECT_URL = '/praca_inzynierska'
@@ -143,9 +146,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
-
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Something with database
 
