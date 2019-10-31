@@ -125,6 +125,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
@@ -133,6 +138,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'praca_inzynierska/static/praca_inzynierska/css'),
+    MEDIA_ROOT,
 ]
 
 #  Add configuration for static files storage using whitenoise
@@ -147,9 +153,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # For passwd reset tests
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEDIA_URL = '/media/'
 
 # Something with database
 
