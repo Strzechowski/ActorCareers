@@ -25,7 +25,10 @@ SECRET_KEY = '&y4q^+t8=^ra20s5i!6#cmz(bg&#ofq)fdb#!$dv3xymck*=#^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['inzynier.herokuapp.com']
+ALLOWED_HOSTS = [
+    'inzynier.herokuapp.com',
+    'localhost',
+]
 
 
 # Application definition
