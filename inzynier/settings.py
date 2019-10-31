@@ -128,12 +128,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'praca_inzynierska/static/praca_inzynierska')
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    "/home/strzecho/learning/inzynierka/inzynier/praca_inzynierska/static/praca_inzynierska/css/",
-    os.path.join(PROJECT_ROOT, 'praca_inzynierska/static/praca_inzynierska/css'),
+    os.path.join(BASE_DIR, 'praca_inzynierska/static/praca_inzynierska/css'),
 ]
 
 #  Add configuration for static files storage using whitenoise
