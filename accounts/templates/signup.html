@@ -4,9 +4,10 @@
 
 {% block page_content %}
   <h2>Sign up</h2>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
+    {{ actor_form|crispy }}
     <input type="submit" value="Sign up" />
   </form>
 {% endblock %}
