@@ -13,8 +13,10 @@ class ActorForm(forms.ModelForm):
 
     class Meta:
         model = Actor
-        fields = ('name', 'surname', 'email', 'city', 'last_role', 'last_movie', 'age', 'sex', 'description', 'profile_picture')
-
+        fields = ('name', 'surname', 'email', 'city', 'last_role', 'last_movie', 'age', 'sex', 'description', 'profile_picture', 'visible')
+        labels = {
+            'visible': 'Do you want your profile to be public?'
+        }
 
 class CompanyForm(forms.ModelForm):
     class Meta:

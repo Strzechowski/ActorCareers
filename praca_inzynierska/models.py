@@ -48,6 +48,15 @@ class Actor(models.Model):
     city = models.CharField(max_length = 100, blank=True, null=True)
     last_role = models.CharField(max_length = 100, blank=True, null=True)
     last_movie = models.CharField(max_length = 100, blank=True, null=True)
+    visible = models.CharField(
+        choices = [
+            ('Yes', 'Yes'),
+            ('No', 'No'),
+        ],
+        max_length = 5,
+        blank=True,
+        null=True
+    )
     age = models.IntegerField(
         validators = [MaxValueValidator(120), MinValueValidator(1)],
         blank=True,
