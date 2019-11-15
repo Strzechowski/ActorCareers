@@ -43,6 +43,8 @@ def signup(request):
             actor.last_role = actor_form.cleaned_data.get('last_role')
             actor.last_movie = actor_form.cleaned_data.get('last_movie')
             actor.description = actor_form.cleaned_data.get('description')
+            actor.visible = actor_form.cleaned_data.get('visible')
+
             picture = request.FILES.get('profile_picture', None)
             if picture is not None:
                 actor.profile_picture = picture

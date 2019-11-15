@@ -53,6 +53,7 @@ def update_profile(request):
         'last_movie': user.actor.last_movie,
         'description': user.actor.description,
         'profile_picture': user.actor.profile_picture,
+        'visible': user.actor.visible,
         'categories': [ request.user.actor.categories ], #initial category does not work...
     }
 
@@ -72,6 +73,7 @@ def update_profile(request):
             user.actor.last_role = form.cleaned_data.get('last_role')
             user.actor.last_movie = form.cleaned_data.get('last_movie')
             user.actor.description = form.cleaned_data.get('description')
+            user.actor.visible = form.cleaned_data.get('visible')
             picture = request.FILES.get('profile_picture', None)
             if picture is not None:
                 user.actor.profile_picture = picture
@@ -116,12 +118,12 @@ def announcement_detail(request, pk):
 
 
 def search_announcements(request):
-    actors_filter = ActorFilter(request.GET, queryset=Actor.objects.all())
+    actors_filter = ActorFilter(request.GET, queryset=Actor.objects.exclude(visible='No'))
     return render(request, 'search_announcements.html', {'filter': actors_filter})
 
 
 def announcement(request):
-    actors_filter = ActorFilter(request.GET, queryset=Actor.objects.exclude(name__isnull=True))
+    actors_filter = ActorFilter(request.GET, queryset=Actor.objects.exclude(visible='No'))
     return render(request, 'announcement.html', {'filter': actors_filter})
 
 

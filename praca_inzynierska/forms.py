@@ -9,7 +9,7 @@ class PhotoForm(forms.ModelForm):
 
 class ActorForm(forms.ModelForm):
 
-    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all())
+    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all(), required=False)
 
     class Meta:
         model = Actor
@@ -26,7 +26,7 @@ class CompanyForm(forms.ModelForm):
 
 class JobForm(forms.ModelForm):
 
-    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all())
+    categories = forms.ModelMultipleChoiceField(queryset=Category.objects.all(), required=False)
 
     class Meta:
         model = Job

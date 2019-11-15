@@ -53,9 +53,7 @@ class Actor(models.Model):
             ('Yes', 'Yes'),
             ('No', 'No'),
         ],
-        max_length = 5,
-        blank=True,
-        null=True
+        max_length = 5
     )
     age = models.IntegerField(
         validators = [MaxValueValidator(120), MinValueValidator(1)],
