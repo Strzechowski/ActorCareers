@@ -3,14 +3,20 @@
 
 {% block page_content %}
 
+<!--  Script does not work as it is supposed to, so it is out of use for now
+
+<script type='text/javascript' src="{% static 'my.js' %}"></script>
+<body onload="jump('list')"> -->
+
 {% block search %}{% endblock %}
+
 
 <div class="col-md-10">
     <br>
     <h1 class="dominant-color">Actors Announcements</h1>
     <hr>
 
-    <div class="container">
+    <div id="list" class="container">
         {% for obj in filter.qs %}
             <div class="row person-info-container top-buffer">
                 <div class="col-md-3 px-0">

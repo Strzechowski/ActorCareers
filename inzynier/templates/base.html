@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{% static "bootstrap.min.css" %}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
 
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dominant">
     <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">ActorCareers</a>
@@ -17,13 +18,10 @@
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'announcement' %}">Announcements</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'companies' %}">Companies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'search_announcements' %}">Search</a>
+              <a class="nav-link" href="{% url 'search_announcements' %}">Search Actors</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'search_jobs' %}">Jobs</a>
