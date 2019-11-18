@@ -62,6 +62,10 @@ a.overlay {
     margin-top: 5px;
 }
 
+.bottom-buffer-small {
+    margin-bottom: 5px;
+}
+
 .blank-bottom {
     padding-bottom: 75px;
 }

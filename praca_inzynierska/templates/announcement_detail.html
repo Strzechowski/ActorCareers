@@ -34,14 +34,17 @@
 <div class="row">
 
     <div class="col-md-6 person-info-container">
-        <div class="top-buffer-small">
+        <div class="top-buffer-small bottom-buffer-small">
             <h5>About the actor:</h5>
             <p>{{ actor.description }}</p>
+            {% if actor.cv %}
+                <a href="{{actor.cv.url }}" class="btn btn-primary btn-sm"> Download actor's CV </a>
+            {% endif %}
         </div>
     </div>
 
     <div class="col-md-6 person-info-container">
-        <div class="top-buffer-small">
+        <div class="top-buffer-small bottom-buffer-small">
             <h5>Actor's info:</h5>
             <p>Age: {{ actor.age }}</p>
             <p>City: {{ actor.city }}</p>

@@ -73,6 +73,7 @@ class Actor(models.Model):
     created_on = models.DateTimeField(auto_now_add = True, blank=True, null=True)
     last_modified = models.DateTimeField(auto_now = True, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='photos/profile_picture/', default='photos/profile_picture/default_profile_picture.png', blank=True, null=True)
+    cv = models.FileField(upload_to='cv/', blank=True, null=True)
     categories = models.ManyToManyField(Category, blank=True)
 
 

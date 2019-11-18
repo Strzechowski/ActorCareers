@@ -53,6 +53,7 @@ def update_profile(request):
         'last_movie': user.actor.last_movie,
         'description': user.actor.description,
         'profile_picture': user.actor.profile_picture,
+        'cv': user.actor.cv,
         'visible': user.actor.visible,
         'categories': [ request.user.actor.categories ], #initial category does not work...
     }
@@ -73,6 +74,7 @@ def update_profile(request):
             user.actor.last_role = form.cleaned_data.get('last_role')
             user.actor.last_movie = form.cleaned_data.get('last_movie')
             user.actor.description = form.cleaned_data.get('description')
+            user.actor.cv = form.cleaned_data.get('cv')
             user.actor.visible = form.cleaned_data.get('visible')
             picture = request.FILES.get('profile_picture', None)
             if picture is not None:
