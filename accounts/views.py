@@ -6,13 +6,6 @@ from django.shortcuts import render, redirect
 from praca_inzynierska.models import Actor
 from praca_inzynierska.forms import ActorForm
 
-'''
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'signup.html'
-'''
-
 def profile(request):
     return render(request, 'profile.html')
 
@@ -50,7 +43,7 @@ def signup(request):
             if picture is not None:
                 actor.profile_picture = picture
 
-            # categories need separete hangling
+            # categories need separete handling
             categories_from_form = actor_form.cleaned_data.get('categories')
             for category in categories_from_form:
                 actor.categories.add(category)
