@@ -39,7 +39,8 @@ a.overlay {
     border: 1px solid #ddd;
     text-decoration: none;
     background-color: #D4ECE7;
-    border-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .about {
