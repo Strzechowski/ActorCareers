@@ -42,6 +42,12 @@ a.overlay {
     border-radius: 25px;
 }
 
+.about {
+    border: 1px solid #ddd;
+    background-color: #D4ECE7;
+    border-radius: 15px;
+}
+
 .accent-color-1 {
     color: #D4ECE7;
 }
