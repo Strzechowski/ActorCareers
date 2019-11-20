@@ -1,11 +1,6 @@
 from django.contrib import admin
 
-from praca_inzynierska.models import Announcement, Actor, Category
-
-class AnnouncementAdmin(admin.ModelAdmin):
-    pass
-
-admin.site.register(Announcement, AnnouncementAdmin)
+from praca_inzynierska.models import Actor, Category
 
 
 @admin.register(Actor)

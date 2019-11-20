@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from praca_inzynierska.models import Announcement, User
+from praca_inzynierska.models import User
 from django.core.files.storage import FileSystemStorage
 from .forms import PhotoForm, ActorForm, CompanyForm, JobForm
 from .models import Photo, Actor, User, Company, Job
