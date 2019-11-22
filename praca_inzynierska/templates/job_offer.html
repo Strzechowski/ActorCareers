@@ -16,9 +16,10 @@
             <h1>{{ job.name }}</h1>
             <br>
 
-            <h3>Localization: {{ job.localization }}</h3>
-            <h3>Pay: {{ job.pay_monthly }} zl / month</h3>
-            <h3>Employer: {{ job.company.name }} </h3>
+            <h4>Localization: {{ job.localization }}</h4>
+            <h4>Pay: {{ job.pay_monthly }} zl / month</h4>
+            <h4>Employer: {{ job.company.name }} </h4>
+            <h4>Contact Email: {{ job.company.user.email }} </h4>
         </div>
     </div>
 
