@@ -161,7 +161,7 @@ def edit_company(request):
     }
 
     if request.method == 'POST':
-        form = CompanyForm(request.POST, initial=initial_form)
+        form = CompanyForm(request.POST, request.FILES, initial=initial_form)
         if form.is_valid():
             user.company.name = form.cleaned_data.get('name')
             user.company.description = form.cleaned_data.get('description')
@@ -222,10 +222,56 @@ def add_job(request):
         'form': form
     })
 
+def edit_job(request, pk):
+    job = Job.objects.get(pk=pk)
+
+    initial_form = {
+        'name': job.name,
+        'description': job.description,
+        'pay_monthly': job.pay_monthly,
+        'localization': job.localization,
+        'picture': job.picture,
+        'categories': [ job.categories ],
+    }
+
+    if request.method == 'POST':
+        form = JobForm(request.POST, request.FILES, initial=initial_form)
+        if form.is_valid():
+            #job_instance = form.save(commit=False)
+            job.company = request.user.company
+            job.description = form.cleaned_data.get('description')
+            job.name = form.cleaned_data.get('name')
+            job.pay_monthly = form.cleaned_data.get('pay_monthly')
+            job.localization = form.cleaned_data.get('localization')
+            job.save()
+
+            picture = request.FILES.get('picture', None)
+            if picture is not None:
+                job.picture = picture
+
+            categories_from_form = form.cleaned_data.get('categories')
+            for category in categories_from_form:
+                job.categories.add(category)
+            job.save()
+
+            return redirect('search_jobs')
+    else:
+        form = JobForm(initial=initial_form)
+    return render(request, 'add_job.html', {
+        'form': form
+    })
+
 
 def search_jobs(request):
     jobs_filter = JobFilter(request.GET, queryset=Job.objects.all())
     return render(request, 'search_jobs.html', {'filter': jobs_filter})
+
+
+def delete_job(request, pk):
+    if request.method == 'POST':
+        job = Job.objects.get(pk=pk)
+        job.delete()
+    return redirect('company_profile', pk=request.user.company.pk)
 
 
 def job_offer(request, pk):
