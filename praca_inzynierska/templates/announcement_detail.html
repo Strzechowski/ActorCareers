@@ -57,6 +57,7 @@
 {% block profile_edit %}
 {% endblock %}
 
+{% if photos %}
 <br>
 <h2>Photos</h2>
 
@@ -75,5 +76,6 @@
 
     {% endfor %}
 </div>
+{% endif %}
 
 {% endblock %}
