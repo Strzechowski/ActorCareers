@@ -159,7 +159,7 @@ else:
 
 
 # Redirects
-LOGIN_REDIRECT_URL = '/praca_inzynierska'
+LOGIN_REDIRECT_URL = '/praca_inzynierska/search_announcements'
 LOGOUT_REDIRECT_URL = '/praca_inzynierska'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
