@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 
 class Photo(models.Model):
-    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
+    photo = models.ImageField(upload_to='photos/', default='photos/profile_picture/default_profile_picture.png', blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def delete(self, *args, **kwargs):
