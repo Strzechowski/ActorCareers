@@ -25,7 +25,7 @@ class Actor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length = 100, blank=True, null=True)
     surname = models.CharField(max_length = 100, blank=True, null=True)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     city = models.CharField(max_length = 100, blank=True, null=True)
     last_role = models.CharField(max_length = 100, blank=True, null=True)
     last_movie = models.CharField(max_length = 100, blank=True, null=True)

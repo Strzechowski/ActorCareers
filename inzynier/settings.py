@@ -126,6 +126,12 @@ USE_TZ = True
 
 
 
+# Authentication options
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'accounts.authentication.EmailAuthBackend'
+]
+
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #MEDIA_URL = '/media/'
