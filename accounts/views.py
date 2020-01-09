@@ -6,6 +6,13 @@ from django.shortcuts import render, redirect
 from praca_inzynierska.models import Actor
 from praca_inzynierska.forms import ActorForm
 
+from django.contrib.auth.views import LoginView
+from .forms import CustomAuthenticationForm
+
+
+class CustomLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm
+
 def profile(request):
     return render(request, 'profile.html')
 
