@@ -171,11 +171,9 @@ LOGOUT_REDIRECT_URL = '/praca_inzynierska'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-# For passwd reset tests
+# For password reset tests
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
-# Something with database
 
 import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)

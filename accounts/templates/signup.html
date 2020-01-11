@@ -8,6 +8,6 @@
     {% csrf_token %}
     {{ form|crispy }}
     {{ actor_form|crispy }}
-    <input type="submit" value="Sign up" />
+    <button type="submit" class="btn btn-primary">Sign up</button>
   </form>
 {% endblock %}
