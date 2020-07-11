@@ -1,8 +1,5 @@
 Beta version of ActorCareers.
 
-Be patient after clicking on a link, because heroku needs a moment to get application running.
-Link to heroku hosting: https://inzynier.herokuapp.com/praca_inzynierska
-
 The app is not fully finished, but I want to focus on different projects now. It was nice experience to play a bit with Django framework and to create my first web application. Maybe in the future I will come back to the framework.
 
 --------------
